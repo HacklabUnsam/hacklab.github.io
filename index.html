@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>HackLab UNSAM</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.6.3/font-awesome.min.css" integrity="sha384-Wrgq82RsEean5tP3NK3zWAemiNEXofJsTwTyHmNb/iL3dP/sZJ4+7sOld1uqYJtE" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="menu">
+      <a href="https://sites.google.com/site/hacklabunsam/" style="padding-left: 10px">
+        <i class="fa">&#xf17c;</i> HackLab UNSAM
+      </a>
+      <div class="right">
+        <a href="https://sites.google.com/site/hacklabunsam/the-team/home/preguntasfrecuentes">
+          <i class="fa">&#xf1cd;</i> Ayuda
+        </a>
+        <a>
+          <i class="fa">&#xf02d;</i> Blog
+        </a>
+        <a onclick="Chat()"><i class="fa">&#xf27a;</i> Chat</a>
+      </div>
+    </div>
+  <script type="text/javascript">
+    'use strict'
+
+    const width = window.screen.availWidth,
+          height = window.screen.availHeight;
+
+    console.log("Hola! Tu resolución es "+width+"x"+height+"?");
+    
+    function Chat()
+    {
+      let iframe = document.getElementsByTagName('iframe')[0];
+      if(!iframe)
+      {
+        let gitter = document.createElement('iframe');
+        gitter.src = 'https://gitter.im/hacklab-unsam/Noticias/~embed';
+        document.body.appendChild(gitter);
+      } else document.body.removeChild(iframe);
+    }
+  </script>
+  </body>
+</html>
