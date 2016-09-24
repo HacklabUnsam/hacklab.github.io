@@ -3,12 +3,17 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/oauth-io/0.5.2/oauth.js"></script>
 	</head>
 	<body>
-		<button>
+		<button onclick="Run()">O</button>
 		<script type="text/javascript">
-			OAuth.initialize('2a816260b95a17d14a91cb6038930c3c1acb69af');
-			OAuth.popup('github', function(error, success){
-			  // See the result below
-			});
+			function Run()
+			{
+				OAuth.initialize('2a816260b95a17d14a91cb6038930c3c1acb69af');
+				OAuth.popup('facebook').done(function(facebook) {
+					facebook.me().done(function(me) {
+						console.log('Your name is ' + me.name)
+					})
+				})
+			}
 		</script>	
 	</body>
 </html>
