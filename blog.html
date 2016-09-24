@@ -8,11 +8,14 @@
 			function Run()
 			{
 				OAuth.initialize('2a816260b95a17d14a91cb6038930c3c1acb69af');
-				OAuth.popup('facebook').done(function(facebook) {
-					facebook.me().done(function(me) {
-						console.log('Your name is ' + me.name)
-					})
-				})
+				// callback_url is the URL where users are redirected
+				// after being authorized
+				OAuth.redirect('facebook', 'callback_url');
+
+				// In callback URL
+				OAuth.callback('facebook', (error, success) { 
+				  // See the result below
+				});
 			}
 		</script>	
 	</body>
