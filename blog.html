@@ -1,23 +1,30 @@
 <html>
 	<head>
-		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/oauth-io/0.5.2/oauth.js"></script>
+		<title>UNSAM HackLab Blog</title>
 	</head>
 	<body>
+		<div></div>
 		<script type="text/javascript">
-			function myRun()
+			function processData(data)
 			{
-				OAuth.initialize('2a816260b95a17d14a91cb6038930c3c1acb69af');
-				// callback_url is the URL where users are redirected
-				// after being authorized
-				OAuth.redirect('facebook', 'callback_url');
 
-				// In callback URL
-				OAuth.callback('facebook', (error, success) {
-					console.log(true);
-				  // See the result below
-				});
 			}
+			function handler()
+			{
+				if(this.status == 200 &
+				   this.responseXML != null &&
+				   this.responseXML.getElementById('test').textContent)
+				{
+					// success!
+					processData(this.responseXML.getElementById('test').textContent);
+				} else {
+				// something went wrong
+				}	
+			}
+			var client = new XMLHttpRequest();
+			//client.onload = handler;
+			client.open("GET", "https://github.com/login/oauth/authorize");
+			client.send();
 		</script>	
-		<button onclick="myRun()">O</button>
 	</body>
 </html>
