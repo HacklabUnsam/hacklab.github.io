@@ -19,7 +19,7 @@ a {
   text-decoration: none;
 }
 
-a:visited {
+:link, :visited {
   text-decoration: none;
   color: white;
 }
