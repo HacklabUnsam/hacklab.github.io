@@ -55,8 +55,7 @@
           if(item==='c'){
             this.reset = !this.reset;
             this.chat = !this.chat;
-            this.icon = 'fa-commenting';
-            this.title = 'Chat'
+            this.title = 'Chat';
             Nav.setGitter('Cyberchat');
           }
         },
@@ -71,6 +70,7 @@
           this.title = 'HackLab UNSAM'
         },
         setGitter: function(item){
+            this.icon = 'fa-refresh fa-spin'
             let iframe = document.body.getElementsByTagName('iframe')[0];
             if(iframe) document.body.removeChild(iframe)
             let chat = document.createElement('iframe');
@@ -80,6 +80,7 @@
               item = 'Soluciones'
             chat.src = 'https://gitter.im/hacklab-unsam/'+item+'/~embed';
             document.body.appendChild(chat);
+            setTimeout( () => { Nav.icon = 'fa-commenting' }, 1000);
         }
       }
     });
