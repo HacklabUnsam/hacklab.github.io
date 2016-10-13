@@ -46,13 +46,13 @@
       },
       methods: {
         pageSet: function(item){
-          if(item==='b'){
+          if(item == 'b'){
             this.reset = !this.reset;
             this.blog = !this.blog;
             this.icon = 'fa-book';
             this.title = 'Blog';
           }
-          if(item==='c'){
+          if(item == 'c'){
             this.reset = !this.reset;
             this.chat = !this.chat;
             this.title = 'Chat';
@@ -63,7 +63,7 @@
           this.blog = false;
           this.chat = false;
           this.reset = true;
-          if(this.title==='Chat'){
+          if(this.title == 'Chat'){
             let iframe = document.body.getElementsByTagName('iframe')[0];
             document.body.removeChild(iframe);
           }
@@ -74,13 +74,13 @@
             let iframe = document.body.getElementsByTagName('iframe')[0];
             if(iframe) document.body.removeChild(iframe)
             let chat = document.createElement('iframe');
-            if(item==='a')
+            if(item == 'a')
               item = 'Noticias'
-            else if(item==='b')
+            else if(item == 'b')
               item = 'Soluciones'
             chat.src = 'https://gitter.im/hacklab-unsam/'+item+'/~embed';
+            chat.onload = function(){ Nav.icon = 'fa-commenting' }
             document.body.appendChild(chat);
-            setTimeout( () => { Nav.icon = 'fa-commenting' }, 1000);
         }
       }
     });
