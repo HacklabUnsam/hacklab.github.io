@@ -15,8 +15,9 @@
       </a>
       <div class="right">
         <template v-if="reset">
-          <a href="#" v-on:click="pageSet('a')"><i class="fa">&#xf1cd;</i> Ayuda</a>
-          <a href="#" v-on:click="pageSet('b')"><i class="fa">&#xf02d;</i> Blog</a>
+          <a href="#" v-on:click="pageSet('a')"><i class="fa">&#xf1cd;</i> Ayuda
+          </a>
+          <a href="#" v-on:click="pageSet('b')"><i class="fa"></i> Buscar</a>
           <a href="#" v-on:click="pageSet('c')"><i class="fa">&#xf27a;</i> Chat</a>
         </template>
         <template v-if="blog">
@@ -84,6 +85,21 @@
         }
       }
     });
+
+    var setBackground = (function() {
+          return {
+            init: function(){ this.start() },
+            start: function(){
+              var letters = '0123456789ABCDEF',
+                  color = '#';
+              for (var i = 0; i < 6; i++ ) {
+                  color += letters[Math.floor(Math.random() * 16)];
+              }
+              document.body.setAttribute('style','background: '+color)
+            }
+          }
+        })();
+    setBackground.init();
   </script>
   </body>
 </html>
