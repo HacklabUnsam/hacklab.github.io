@@ -15,9 +15,8 @@
       </a>
       <div class="right">
         <template v-if="reset">
-          <a href="#" v-on:click="pageSet('a')"><i class="fa">&#xf1cd;</i> Ayuda
-          </a>
-          <a href="#" v-on:click="pageSet('b')"><i class="fa"></i> Buscar</a>
+          <a href="#" v-on:click="pageSet('a')"><i class="fa">&#xf1cd;</i> Ayuda</a>
+          <a href="https://sites.google.com/site/hacklabunsam/blog" v-on:click="pageSet('b')"><i class="fa">&#xf02d;</i> Blog</a>
           <a href="#" v-on:click="pageSet('c')"><i class="fa">&#xf27a;</i> Chat</a>
         </template>
         <template v-if="blog">
@@ -47,7 +46,7 @@
       },
       methods: {
         pageSet: function(item){
-          if(item == 'b'){
+          if(item == '/b'){
             this.reset = !this.reset;
             this.blog = !this.blog;
             this.icon = 'fa-book';
