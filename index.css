@@ -54,3 +54,10 @@ iframe {
 .right a {
   padding: 0 5px 0 25px;
 }
+
+#content {
+  position: absolute;
+  overflow: hidden;
+  height: calc(100% - 50px);
+  width: 100%;
+}
